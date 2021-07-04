@@ -73,5 +73,5 @@ page {
     background: #fff;
 }
 .list{
-  margin-top: 120rpx;
+  margin-top: 125rpx;
 }
