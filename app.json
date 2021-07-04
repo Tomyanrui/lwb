@@ -1,0 +1,60 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/member/member",
+    "pages/message/message",
+    "pages/release/release",
+    "pages/resources/resources",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/release-agent/release-agent",
+    "pages/release-enterprise/release-enterprise",
+    "pages/setting/setting",
+    "pages/my-release/my-release",
+    "pages/my-collection/my-collection",
+    "pages/my-company/my-company",
+    "pages/my-company-edit/my-company-edit",
+    "pages/agent-info/agent-info",
+    "pages/agent-info/modify-nick-name",
+    "pages/release-company/release-company",
+    "pages/company/company"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "@tabBarColor",
+    "selectedColor": "@tabBarSelectedColor",
+    "borderStyle": "@tabBarBorderStyle",
+    "backgroundColor": "@tabBarBackgroundColor",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "iconPath": "@iconPathHome",
+        "selectedIconPath": "@selectedIconPathHome",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/resources/resources",
+        "iconPath": "@iconPathResources",
+        "selectedIconPath": "@selectedIconPathResources",
+        "text": "资源"
+      },
+      {
+        "pagePath": "pages/member/member",
+        "iconPath": "@iconPathMember",
+        "selectedIconPath": "@selectedIconPathMember",
+        "text": "我的"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "themeLocation": "theme.json",
+  "useExtendedLib": {
+    "weui": true
+  }
+}

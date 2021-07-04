@@ -1,0 +1,57 @@
+/* example/input/input.wxss */
+@import '../common.wxss';
+
+.weui-agree .weui-agree__text {
+  display: inline;
+}
+
+.weui-release-btn {
+  display: inline-block;
+  font-size: 12px;
+  color: var(--weui-LINK);
+  position: relative
+}
+
+.dropdown_two {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.text-center {
+  border: gray;
+  display: flex;
+  align-items: center;
+}
+
+/* width:100%;height:100%; */
+
+
+.dropdown_border {
+  width: 120rpx;
+  height: 70rpx;
+  border-color: #666666;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 10rpx;
+  font-size: 26rpx;
+  margin-right: 12rpx;
+  display: flex;
+}
+
+.dropdown_text {
+  width: 120rpx;
+  text-align: center;
+  line-height: 70rpx;
+}
+
+.select_box {
+  display: flex;
+}
+
+.input {
+  width: 120rpx;
+  height: 70rpx;
+  text-align: center;
+  margin-right: 8rpx;
+}

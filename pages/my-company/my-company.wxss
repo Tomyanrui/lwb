@@ -1,0 +1,8 @@
+.banner-image {
+  width: 100%;
+  height: 300rpx;
+}
+
+.tabs{
+  margin-top: 20rpx;
+}

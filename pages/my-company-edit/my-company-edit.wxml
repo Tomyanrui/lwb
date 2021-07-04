@@ -1,0 +1,73 @@
+<view class="page">
+  <view class="page-body">
+    <mp-cells title="基本信息">
+      <mp-cell hover link url="" value="公司名称" footer="{{serviceCompany.name}}" bindtap="modifyName"></mp-cell>
+
+      <mp-cell hover link url="" value="经营地址" footer="{{addressRemark}} {{serviceCompany.address}}" bindtap="modifyAddress"></mp-cell>
+
+      <mp-cell hover link url="" value="输送量" footer="{{serviceCompany.peopleNumber}}" bindtap="modifyPeopleNumber"></mp-cell>
+
+      <!-- <mp-cell title="标题文字" ext-class="">
+        <input class="weui-input" placeholder="请输入文本" />
+      </mp-cell>
+     -->
+    </mp-cells>
+
+    <mp-cells title="公司介绍">
+      <mp-cell has-header="{{false}}" has-footer="{{false}}" title="" ext-class="">
+        <textarea class="weui-textarea" bindinput="companyRemark" placeholder="请输入文本" style="height: 3.3em" value="{{serviceCompany.remark}}"></textarea>
+        <view class="weui-textarea-counter">0/200</view>
+      </mp-cell>
+    </mp-cells>
+
+    <mp-cells>
+      <mp-cell>
+        <mp-uploader bindfail="uploadError" bindsuccess="uploadSuccess" select="{{selectFile}}" upload="{{uplaodFile}}"
+          files="{{files}}" max-count="1" title="公司图片" tips="图片上传提示"></mp-uploader>
+      </mp-cell>
+    </mp-cells>
+
+    <button type="primary" class="save" bindtap="save">保存</button>
+
+  </view>
+</view>
+
+<view class="modalDlg" catchtouchmove='preventTouchMove' wx:if='{{showModal}}'>
+  <view class='windowRow'>
+    <text class='userTitle'>标题
+    </text>
+    <view class='back' bindtap='back'>
+      X
+    </view>
+  </view>
+  <view class='wishName'>
+    <input bindinput='wish_put' placeholder='请输入内容' class='wish_put'></input>
+  </view>
+  <view class='wishbnt'>
+    <button class='wishbnt_bt' bindtap='ok'>确定</button>
+  </view>
+</view>
+
+<!-- 地址选择 -->
+<view class="modalDlgAddress" catchtouchmove='preventTouchMove' wx:if='{{showModalAddress}}'>
+  <view class='windowRow'>
+    <text class='userTitle'>标题
+    </text>
+    <view class='back' bindtap='back'>
+      X
+    </view>
+  </view>
+  <view class="section">
+  <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+    <button class="picker">
+      当前选择：{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}，{{multiArray[2][multiIndex[2]]}}
+    </button>
+  </picker>
+</view>
+  <view class='wishName'>
+    <input bindinput='wish_put' placeholder='请输入详细地址' class='wish_put'></input>
+  </view>
+  <view class='wishbnt'>
+    <button class='wishbnt_bt' bindtap='ok'>确定</button>
+  </view>
+</view>

@@ -1,0 +1,140 @@
+<view class="page" data-weui-theme="{{theme}}">
+  <mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
+  <mp-form-page title="发布企业招聘" subtitle="保存/发布企业信息">
+    <mp-form id="form" rules="{{rules}}" models="{{formData}}">
+      <mp-cells>
+        <mp-cell prop="name" title="发布企业" ext-class="mp-cell">
+          <!-- <input bindinput="formInputChange" data-field="name" class="weui-input" placeholder="请输入企业名称" /> -->
+          <picker bindchange="bindCompanyChange" value="{{companyIndex}}" range="{{companyArray}}">
+            <view class="weui-select">{{companyArray[companyIndex]}}</view>
+          </picker>
+          <view slot="footer" class="weui-release-btn">
+            <navigator url="/pages/release-company/release-company">
+              无企业，去添加
+            </navigator>
+          </view>
+        </mp-cell>
+        <mp-cell title="职位描述">
+          <input bindinput="remarkInput" value="{{job.jobRemark}}" class="weui-input" placeholder="请输入职位描述" />
+        </mp-cell>
+
+        <mp-cell ext-class="weui-cell_select weui-cell_select-after">
+          <view slot="title" class="weui-label">招聘职位</view>
+          <picker bindchange="bindResourceChange" value="{{resourceIndex}}" range="{{resourceArray}}">
+            <view class="weui-select">{{resourceArray[resourceIndex]}}</view>
+          </picker>
+        </mp-cell>
+
+        <mp-cell ext-class="">
+          <view slot="title" class="weui-label">年龄</view>
+          <view class="text-center">
+            <view class="dropdown_border">
+              <picker bindchange="bindAgeBeginChange" value="{{ageBeginIndex}}" range="{{ages}}">
+                <view class="dropdown_text">{{ages[ageBeginIndex]}}</view>
+              </picker>
+            </view>
+            <view class="dropdown_border">
+              <picker bindchange="bindAgeEndChange" value="{{ageEndIndex}}" range="{{ages}}">
+                <view class="dropdown_text">{{ages[ageEndIndex]}}</view>
+              </picker>
+            </view>
+          </view>
+        </mp-cell>
+
+        <mp-cell ext-class="">
+          <view slot="title" class="weui-label">薪资类型</view>
+          <view class="text-center">
+            <view class="dropdown_border">
+              <picker bindchange="bindJobMoneyTypeChange" value="{{jobMoneyIndex}}" range="{{jobMoneyType}}">
+                <view class="dropdown_text">{{jobMoneyType[jobMoneyIndex]}}</view>
+              </picker>
+            </view>
+            <view class="dropdown_border">
+              <input bindinput="jobMoneyInput" value="{{job.jobMoney}}" class="input dropdown_text" placeholder="0" />
+            </view>
+            <view></view>
+          </view>
+        </mp-cell>
+
+        <mp-cell ext-class="">
+          <view slot="title" class="weui-label">返费类型</view>
+          <view class="text-center">
+            <view class="dropdown_border">
+              <picker bindchange="bindGetMoneyTypeChange" value="{{getMoneyIndex}}" range="{{getMoneyType}}">
+                <view class="dropdown_text">{{getMoneyType[getMoneyIndex]}}</view>
+              </picker>
+            </view>
+            <view class="dropdown_border">
+              <input bindinput="getMoneyInput" value="{{job.getMoney}}" class="input dropdown_text" placeholder="0" />
+            </view>
+            <view></view>
+          </view>
+        </mp-cell>
+      </mp-cells>
+
+      <mp-cells title="返费政策">
+        <mp-cell>
+          <textarea class="weui-textarea" placeholder="请输入返费政策" bindinput="getMoneyRemarkInput"
+            value="{{job.getMoneyRemark}}" style="height: 3.3em"></textarea>
+          <view class="weui-textarea-counter">0/200</view>
+        </mp-cell>
+      </mp-cells>
+
+      <!-- <mp-cells title="职位介绍">
+        <mp-cell>
+          <textarea class="weui-textarea" bindinput="remarkInput" value="{{job.jobRemark}}" placeholder="请输入职位介绍"
+            style="height: 3.3em"></textarea>
+          <view class="weui-textarea-counter">0/200</view>
+        </mp-cell>
+      </mp-cells> -->
+
+      <mp-cells title="类型">
+        <mp-cell ext-class="weui-cell_select weui-cell_select-after">
+          <view slot="title" class="weui-label">类型</view>
+          <picker bindchange="bindJobTypeChange" value="{{jobTypeIndex}}" range="{{jobTypeArray}}">
+            <view class="weui-select">{{jobTypeArray[jobTypeIndex]}}</view>
+          </picker>
+        </mp-cell>
+      </mp-cells>
+
+      <mp-cells title="联系方式">
+        <mp-cell title="姓名">
+          <input bindinput="contactsPeople1Change" value="{{job.contactsPeople1}}" placeholder="输入姓名" />
+        </mp-cell>
+        <mp-cell title="电话">
+          <input bindinput="contactsPhone1Change" value="{{job.contactsPhone1}}" placeholder="输入联系方式" />
+        </mp-cell>
+      </mp-cells>
+
+      <mp-cells title="地址">
+        <mp-cell title="地区信息" footer="请选择">
+          <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange"
+            value="{{multiIndex}}" range="{{multiArray}}">
+            <view>{{addressSelect}}</view>
+          </picker>
+        </mp-cell>
+        <mp-cell title="详细地址">
+          <input bindinput="addressInput" value="{{job.address}}" placeholder="输入详细地址" />
+        </mp-cell>
+      </mp-cells>
+
+      <mp-cells>
+        <mp-cell>
+          <mp-uploader upload="{{uplaodFile}}" files="{{files}}" max-count="1" title="职位图片" tips="图片上传提示"></mp-uploader>
+        </mp-cell>
+      </mp-cells>
+    </mp-form>
+
+    <!-- <checkbox-group slot="tips" bindchange="bindAgreeChange">
+      <label class="weui-agree">
+        <checkbox class="weui-agree__checkbox-check" />
+        <text class="weui-agree__checkbox"></text>
+        <view class="weui-agree__text">阅读并同意<navigator>《相关条款》</navigator>
+        </view>
+      </label>
+    </checkbox-group> -->
+    <view slot="button">
+      <button class="weui-btn" type="primary" bindtap="save">发布</button>
+    </view>
+  </mp-form-page>
+</view>

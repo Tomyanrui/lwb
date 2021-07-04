@@ -1,0 +1,101 @@
+/* pages/my/my.wxss */
+.invoice {
+  background-color: var(--bgColor);
+  padding-top: 22rpx;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.van-cell-group{
+  margin-top: 22rpx;
+  /* background-color: var(--white); */
+  background-color: aqua;
+}
+
+.item-wrapper {
+  margin-top: 22rpx;
+  background-color: var(--white);
+  padding: 0 36rpx;
+}
+
+.item-wrapper:first-child {
+  margin-top: 0;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 98rpx;
+  line-height: 98rpx;
+  background-color: var(--white);
+}
+
+.item-wrapper .my-item .iconfont {
+  color: #fff;
+}
+
+.portrait {
+  width:72rpx;
+  height:72rpx;
+  border-radius: 50%;
+}
+
+.iconnext {
+  font-size:22rpx;
+  color: var(--arrowColor);
+}
+
+.btn {
+  width: calc(100vw - 72rpx);
+  height: 90rpx;
+  line-height: 90rpx;
+  margin: 72rpx auto 0;
+  text-align: center;
+  background-color: var(--white);
+  border-radius:4rpx;
+  font-size:26rpx;
+  font-family:PingFangSC-Medium,PingFang SC;
+  font-weight:500;
+  color:rgba(16,15,15,1);
+}
+.wx-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.wx-block {
+  width: 399rpx;
+  height: 145rpx;
+  background-color: #fff;
+  border-radius:14rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wx-block .icongongyongtubiao_gouxuan{
+    color: var(--green);
+    margin-right: 16rpx;
+    font-size:45rpx;
+}
+.wx-block .tip{
+  font-size:36rpx;
+  font-family:PingFangSC-Medium,PingFang SC;
+  font-weight:500;
+  color: var(--blodTitle);
+  line-height:51rpx;
+}
+
+.white{
+  /* color: #fff; */
+  background-color: #fff;
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.iconnext{
+  width: 48rpx;
+  height: 48rpx;
+}

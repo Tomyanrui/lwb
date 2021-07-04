@@ -1,0 +1,334 @@
+// 在WXML页面引入 <wxs module="commonMethod" src="../../utils/commonMethod.wxs"></wxs>
+// 调用 commonMethod.yourMethod(data)
+var tagsScale = {
+  carry: {
+    name: "可外送",
+    key: "carry",
+  },
+  self: {
+    name: "可自取",
+    key: "self",
+  },
+  eat: {
+    name: "可堂食",
+    key: "eat",
+  },
+};
+
+var commonMethod = {
+  tagsFilter: function (str) {
+    return str.split("|").map(function (item) {
+      return tagsScale[item];
+    });
+  },
+  distanceTrans: function (num) {
+    if (num < 0) {
+      return num;
+    }
+    if (num < 100) {
+      return "<100m";
+    } else {
+      var fixNum = (num / 1000).toFixed(2);
+      return fixNum + "km";
+    }
+  },
+  transNumber: function (num, po, addZero) {
+    num = num || 0;
+    po = typeof po === "number" ? po : 2;
+    var target = po === 0 ? parseInt(num) : num.toFixed(po);
+    return addZero ? (target > 9 ? target : "0" + target) : target;
+  },
+
+  // 订单金额换算
+  transferAmount: function (money) {
+    if (money) {
+      // return (money / 100).toFixed(2)
+      var value = money / 100;
+      return value.toFixed(2);
+    } else {
+      return "0.00";
+    }
+  },
+  // 选择送达时间的时间展示 10:30 - 11:00
+  splitDeliveryTime: function (item) {
+    if (item.end && item.start) {
+      var ss = item.start.split(" ")[1].split(":");
+      var es = item.end.split(" ")[1].split(":");
+      return ss[0] + ":" + ss[1] + " - " + es[0] + ":" + es[1];
+    } else {
+      var jss = item.start.split(" ")[1].split(":");
+      return jss[0] + ":" + jss[1];
+    }
+  },
+  // 选择送达时间的日期展示11月03日
+  splitDeliveryDay: function (item) {
+    if (item) {
+      var arr = item.split("-");
+      return arr[1] + "月" + arr[2] + "日";
+    } else {
+      return "";
+    }
+  },
+  // 订阅商品送达时间的日期展示 2020-11-03 转换为 2020年11月03日
+  splitSubscribeTime: function (item) {
+    if (item) {
+      var arr = item.split("-");
+      return arr[0] + "年" + arr[1] + "月" + arr[2] + "日";
+    } else {
+      return "";
+    }
+  },
+  // 现在下单 预计时间显示 03-26 09:00
+  plantimeSplit: function (time) {
+    if (time) {
+      var res = time.split("-");
+      return res[1] + "-" + res[2];
+    } else {
+      return "";
+    }
+  },
+  // 订单详情-送餐到桌 预计送餐时间显示 09:00
+  orderDetailTimeSplit: function (time) {
+    if (time) {
+      var timeArr = time.split(" ")[1].split(":");
+      return timeArr[0] + ":" + timeArr[1];
+    } else {
+      return "";
+    }
+  },
+  // 订单详情 取餐时间的时间展示03/26 10:30
+  splitPickTime: function (item) {
+    if (item) {
+      var dateArr = item.split(" ")[0].split("/");
+      var timeArr = item.split(" ")[1].split(":");
+      var dateStr = dateArr[1] + "/" + dateArr[2];
+      var timeStr = timeArr[0] + ":" + timeArr[1];
+      return dateStr + " " + timeStr;
+    } else {
+      return "";
+    }
+  },
+  // 订单详情-配送 预计送达时间的时间展示03月26日 10:30
+  orderDetailDeliveryTime: function (item) {
+    if (item) {
+      var dateArr = item.split(" ")[0].split("/");
+      var timeArr = item.split(" ")[1].split(":");
+      var dateStr = dateArr[1] + "月" + dateArr[2] + "日";
+      var timeStr = timeArr[0] + ":" + timeArr[1];
+      return dateStr + " " + timeStr;
+    } else {
+      return "";
+    }
+  },
+  // 订单详情-配送 期望送达时间显示 2020/03/26 10:30
+  orderDetailWantTime: function (item) {
+    if (item) {
+      var timeArr = item.split(" ")[1].split(":");
+      var timeStr = timeArr[0] + ":" + timeArr[1];
+      return item.split(" ")[0] + " " + timeStr;
+    } else {
+      return "";
+    }
+  },
+  // 选中时间后顶部展示 03-26 09:30-10:00
+  hasSelectPlantime: function (item) {
+    if (item.end && item.start) {
+      var t1 = item.start.split("-");
+      var t2 = t1[2].split(":");
+      var t3 = t1[1] + "-" + t2[0] + ":" + t2[1];
+      // 变成格式 03-26 10:00
+      var t4 = item.end.split(" ")[1];
+      var t5 = t4.split(":");
+      return t3 + "-" + t5[0] + ":" + t5[1];
+    } else if (item.start) {
+      var t1 = item.start.split("-");
+      var t2 = t1[2].split(":");
+      var t3 = t1[1] + "-" + t2[0] + ":" + t2[1];
+      return t3;
+    }
+  },
+  // 将1234567890这样的格式变成1234 5678 90,每四位隔一下格式,可以根据需求要隔
+  transNumFormat: function (value) {
+    return value
+      .toString()
+      .replace(getRegExp("s", "g"), "")
+      .replace(getRegExp("(.{4})", "g"), "$1 ");
+  },
+  // 将服务器传的时间转换时间格式为2019/02/09
+  transTimeFormat: function (value, type = "/") {
+    var reg = getRegExp("-", "g");
+    var time = value.replace(reg, "/");
+    var date = getDate(time);
+    var timestamp = date.getTime();
+    var d = getDate(timestamp),
+      month = "" + (d.getMonth() + 1),
+      day = "" + d.getDate(),
+      year = d.getFullYear();
+
+    if (month.length < 2) month = "0" + month;
+    if (day.length < 2) day = "0" + day;
+
+    return [year, month, day].join(type);
+  },
+  // 将时间戳转换时间格式为2019/02/09
+  transTimestampFormat: function (value, type = "/") {
+    var d = getDate(value),
+      month = "" + (d.getMonth() + 1),
+      day = "" + d.getDate(),
+      year = d.getFullYear();
+
+    if (month.length < 2) month = "0" + month;
+    if (day.length < 2) day = "0" + day;
+
+    return [year, month, day].join(type);
+  },
+  // 时间格式 yyyy-MM-dd HH:mm:ss 转换 为时间戳
+  transDateToTimestamp: function (value) {
+    if (value) {
+      var reg = getRegExp("-", "g");
+      var time = value.replace(reg, "/");
+      var date = getDate(time);
+      var timestamp = date.getTime();
+      return timestamp;
+    }
+  },
+  // 时间戳转 yyyy-MM-dd HH:mm:ss
+  transTimestampToDate: function (value) {
+    if (value) {
+      var date = getDate(value);
+      var YY = date.getFullYear() + "-";
+      var MM =
+        (date.getMonth() + 1 < 10
+          ? "0" + (date.getMonth() + 1)
+          : date.getMonth() + 1) + "-";
+      var DD = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
+      var hh =
+        (date.getHours() < 10 ? "0" + date.getHours() : date.getHours()) + ":";
+      var mm =
+        (date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()) +
+        ":";
+      var ss =
+        date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+      return YY + MM + DD + " " + hh + mm + ss;
+    }
+    return "";
+  },
+  // 解决wxml不能用indexOf
+  indexOf: function (arr, value) {
+    if (arr.indexOf(value) < 0) {
+      return false;
+    } else {
+      return true;
+    }
+  },
+  //截取字符串
+  strBefore: function (str) {
+    var str_before = str.split("，")[0];
+    return str_before;
+  },
+  strAfter: function (str) {
+    var str_after = str.split("，")[1];
+    return str_after;
+  },
+  //  检测是否是视频格式
+  isVideo: function (url) {
+    if (
+      url.indexOf("mp4") > -1 ||
+      url.indexOf("3gp") > -1 ||
+      url.indexOf("m3u8") > -1
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  },
+  // 字符串截取
+  subString: function (str, start, end) {
+    str = str.substring(start, end);
+    return str;
+  },
+  // 判断子门店是否歇业
+  setSubStoreOpenTimeStatus: function (store, DeliveryType) {
+    if (store.openTime.status - 0 === 0) {
+      return {
+        className: "stop",
+        text: "歇业",
+      };
+    }
+    return {
+      className: store.deliveryType,
+      text: "仅" + DeliveryType[store.deliveryType],
+    };
+  },
+  // Math.floor向下取余
+  mathFloor: function (num) {
+    return Math.floor(num);
+  },
+  getOpenTime: function (openTime) {
+    var manageTimes = "";
+
+    switch (+openTime.openTimeType) {
+      case 0:
+        return openTime.timeStart + "~" + openTime.timeEnd;
+      case 1:
+        // 暂定显示全部营业时间
+        openTime.manageTimes.forEach(function (item, index) {
+          // if (
+          //   getDate().getTime() > getDate(item.openingTime).getTime() &&
+          //   getDate().getTime() < getDate(item.closingTime).getTime()
+          // ) {
+          //   manageTimes = item.openingTime + "~" + item.closingTime;
+          // }
+          manageTimes += "\n" + item.openingTime + "~" + item.closingTime;
+        });
+        return manageTimes;
+    }
+  },
+  /**
+   * @description: 营销领取列表-优惠券有效时间展示
+   * @param {value} 2020-8-22 12:12:12
+   * @return {value} 2020.8.22 12:12
+   */
+  couponTime: function (value = "2020-8-22 12:12:12") {
+    var dateTime = value.split(" ");
+    // wxs不支持正则 替换3次 dateTime[0].replace(/-/g, ".");
+    dateTime[0].replace("-", ".");
+    dateTime[0].replace("-", ".");
+    dateTime[0].replace("-", ".");
+
+    var time = dateTime[1].split(":");
+
+    return dateTime[0] + " " + time[0] + ":" + time[1];
+  },
+  // 搜索历史记录保留8位字符
+  getEightText: function (value) {
+    var newValue = "";
+    newValue = value.slice(0, 7);
+    if (value && value.length > 8) {
+      newValue += "...";
+    }
+    return newValue;
+  },
+  // 计算时间戳的差值对应的时间段
+  getTime: function (startTimestamp, endTimestamp) {
+    var gapTime = (endTimestamp - startTimestamp)
+    var timeObj = {
+          day: 0,
+          hour: 0,
+          minute: 0,
+          second: 0
+        };
+    gapTime = Math.floor( gapTime/1000 );  // 把毫秒，转为秒
+    
+    if (gapTime > 0) {
+      timeObj.second =  gapTime % 60, 
+      timeObj.minute = Math.floor( gapTime / 60 % 60 ),  
+      timeObj.hour = Math.floor( gapTime / 60 / 60  ) % 24,
+      timeObj.day = Math.floor(gapTime / 60 / 60 / 24);
+    }
+    var str = (timeObj.day + '天 ' + timeObj.hour + '时 ' + timeObj.minute + '分 ' + timeObj.second + '秒 ')
+    return str
+  },
+};
+
+module.exports = commonMethod;

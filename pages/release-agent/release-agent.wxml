@@ -1,0 +1,30 @@
+<view class="page">
+  <view class="page-body">
+    <!-- 头像 -->
+    <view class="index-hd">
+      <image class="index-logo" src="../../images/icon_home_HL.png"></image>
+      <view class="index-desc">修改头像</view>
+    </view>
+
+    <mp-cells title="">
+      <!-- 姓名 -->
+      <mp-cell link url="" value="姓名" footer="猪小二"></mp-cell>
+      <!-- 性别 -->
+      <mp-cell link url="" value="性别" footer="男"></mp-cell>
+      <!-- 从业年数 -->
+      <mp-cell link url="" value="从业年数" footer="5年"></mp-cell>
+      <!-- 输送量 -->
+      <mp-cell link url="" value="输送量" footer="5000人"></mp-cell>
+      <!-- 资源 -->
+      <mp-cell link url="" value="资源" footer="农民工、暑假工、寒假工"></mp-cell>
+      <!-- 地址 -->
+      <mp-cell link url="" value="地址" footer="上海"></mp-cell>
+      <!-- 个人介绍 -->
+      <mp-cell link url="" value="个人介绍" footer="个人介绍"></mp-cell>
+      <!-- 完善 -->
+    </mp-cells>
+
+    <button type="primary">完善</button>
+
+  </view>
+</view>

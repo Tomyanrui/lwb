@@ -1,0 +1,81 @@
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 98rpx;
+    line-height: 98rpx;
+    background-color: var(--white);
+}
+
+.title {
+    font-size:25rpx;
+    font-family:PingFangSC-Regular,PingFang SC;
+    font-weight:400;
+    color:rgba(51,51,51,1);
+}
+
+.content-with-arrow {
+    display: flex;
+    align-items: center;
+}
+
+.content-with-arrow .content {
+    margin-right: 22rpx;
+}
+
+.content-with-arrow .contentEmpty {
+    margin-right: 22rpx;
+}
+
+.content {
+    font-size:25rpx;
+    font-family:PingFangSC-Medium,PingFang SC;
+    font-weight:500;
+    color:rgba(16,15,15,1);
+}
+
+.contentEmpty {
+    color: #999999;
+    font-size:26rpx;
+    font-family:PingFangSC-Regular,PingFang SC;
+    font-weight:400;
+}
+
+.iconnext {
+    /* font-size:22rpx; */
+    width: 48rpx;
+    height: 48rpx;
+    color: var(--arrowColor);
+}
+
+.iconnext.active {
+    color: var(--white);
+}
+
+.input {
+    width: 500rpx; /* 发票填写邮箱时 输入框宽度过窄导致显示不全问题 */
+    text-align: right;
+    font-size:25rpx;
+    font-family:PingFangSC-Medium,PingFang SC;
+    font-weight:500;
+    color:rgba(16,15,15,1);
+}
+.code-input{
+    font-size:25rpx;
+    font-family:PingFangSC-Medium,PingFang SC;
+    font-weight:500;
+    color:rgba(16,15,15,1);
+}
+.send-code{
+    width: 130rpx;
+    font-size: 25rpx;
+    font-weight: 500;
+    color: var(--blodTitle);
+}
+
+.inputPlaceholder {
+    font-size:28rpx;
+    font-family:PingFangSC-Regular,PingFang SC;
+    font-weight:400;
+    color:rgba(153,153,153,1);
+}

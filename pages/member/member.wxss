@@ -1,0 +1,39 @@
+/* 头部部分的内容 */
+.page {
+  display: flex;
+  flex-direction: column;
+  color: var(--blodTitle);
+  /* background-color: #f5f5f5; */
+  height: 100%;
+  padding-bottom: 200rpx;
+  overflow-y: auto;
+}
+
+.my-top {
+  position: relative;
+  height: 417rpx;
+  width: 100%;
+  overflow: hidden;
+  background: url('https://oss.angsi.com/frontend-picture/1596607275261.png') no-repeat;
+  background-position: right top;
+  background-size: cover;
+  box-sizing: border-box;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  height: 417rpx;
+  width: 100%;
+  padding-left: 30rpx;
+}
+
+.user-avator {
+  width: 80px;
+  height: 80px;
+}
+
+.user-desc{
+  margin-left: 12rpx;
+  color: #fff;
+}

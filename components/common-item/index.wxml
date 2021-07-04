@@ -1,0 +1,49 @@
+<!--pages/my/my.wxml-->
+<navigator wx:if="{{url}}" url="{{url}}" class="item-class item {{hasBorder ? 'border-bottom' : ''}}"
+  open-type="navigate">
+  <view class="title">{{title}}</view>
+  <view wx:if="{{isContentWithArrow}}" class="content-with-arrow">
+    <view class="{{(contentEmptyText && content == '') ? 'contentEmpty' : 'content'}}">
+      {{content ? content : contentEmptyText}}</view>
+    <!-- <icon class="iconfont iconnext {{isArrowHidden ? 'active' : ''}}"></icon> -->
+    <image class="iconnext {{isArrowHidden ? 'active' : ''}}" src="../../images/arrow-right.png"></image>
+  </view>
+  <!-- <icon wx:else class="iconfont iconnext"></icon> -->
+  <image wx:else class="iconnext" src="../../images/arrow-right.png"></image>
+
+</navigator>
+<view wx:else class="item-class item {{hasBorder ? 'border-bottom' : ''}}" bindtap="onSelectItem">
+  <view class="title">{{title}}</view>
+  <block wx:if="{{isShowArrow}}">
+    <!-- <icon class="iconfont iconnext"></icon> -->
+    <image class="iconnext" src="../../images/arrow-right.png"></image>
+  </block>
+  <block wx:elif="{{isShowInput}}">
+    <input class="input" type="{{inputType}}" value="{{content}}" placeholder="{{inputPlacehodler}}"
+      placeholder-class="inputPlaceholder" maxlength="{{maxlength}}" bindchange="" bindinput="onInput" bindfocus=""
+      bindblur="onBlur"></input>
+  </block>
+  <block wx:elif="{{isShowCode}}">
+    <input class="code-input" type="{{inputType}}" value="{{content}}" placeholder="{{inputPlacehodler}}"
+      placeholder-class="inputPlaceholder" maxlength="{{maxlength}}" bindchange="" bindinput="onInput" bindfocus=""
+      bindblur=""></input>
+    <view class="send-code" bindtap="onSend">发送验证码</view>
+  </block>
+  <block wx:elif="{{isShowSend}}">
+    <input class="code-input" type="{{inputType}}" value="{{content}}" placeholder="{{inputPlacehodler}}"
+      placeholder-class="inputPlaceholder" maxlength="{{maxlength}}" bindchange="" bindinput="onInput" bindfocus=""
+      bindblur=""></input>
+    <view class="send-code"></view>
+  </block>
+  <block wx:elif="{{isContentWithArrow}}">
+    <view class="content-with-arrow">
+      <view class="{{(contentEmptyText && content == '') ? 'contentEmpty' : 'content'}}">
+        {{content ? content : contentEmptyText}}</view>
+      <!-- <icon class="iconfont iconnext {{isArrowHidden ? 'active' : ''}}"></icon> -->
+      <image class="iconnext {{isArrowHidden ? 'active' : ''}}" src="../../images/arrow-right.png"></image>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="content">{{content}}</view>
+  </block>
+</view>

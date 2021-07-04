@@ -1,0 +1,41 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "编辑劳务公司",
+          "pathName": "pages/my-company-edit/my-company-edit",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "劳务公司详情",
+          "pathName": "pages/my-company/my-company",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "发布招聘信息",
+          "pathName": "pages/my-release/my-release",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "新增企业",
+          "pathName": "pages/release-company/release-company",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

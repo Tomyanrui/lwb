@@ -1,0 +1,27 @@
+<view class="page">
+
+  <view class="my-top" style="background-image: url({{vipBgImage}});">
+    <navigator url="">
+      <view class="user">
+        <!-- <image class="user-avator" src="../../images/avatar.png"></image>
+        <view class="user-desc">集团-xxx</view> -->
+        <!-- <image class="user-avator" src="{{userInfo.avatarUrl}}"></image> -->
+        <!-- <view class="user-desc">{{userInfo.nickName}}</view> -->
+        <open-data type="userAvatarUrl"></open-data>
+        <open-data type="userNickName"></open-data>
+      </view>
+    </navigator>
+  </view>
+
+  <mp-cells title="">
+    <mp-cell hover link url="../../pages/my-release/my-release" value="我的发布" footer="">
+    </mp-cell>
+    <!-- <mp-cell hover link url="../../pages/my-collection/my-collection" value="我的收藏" footer="">
+    </mp-cell> -->
+    <mp-cell hover link url="../../pages/my-company/my-company?id={{userInfo.vipId}}" value="我的公司" footer="">
+    </mp-cell>
+    <!-- <mp-cell hover link url="../../pages/setting/setting" value="设置" footer="">
+    </mp-cell> -->
+  </mp-cells>
+
+</view>

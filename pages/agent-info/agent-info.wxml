@@ -1,0 +1,48 @@
+<wxs src="../../utils/commonMethod.wxs" module="commonMethod" />
+<view class="invoice">
+  <view class="item-wrapper">
+    <view class="item" bindtap="onSelectPhoto">
+      <image src="{{userInfo.photo}}" mode="aspectFill" class="portrait"></image>
+      <icon class="iconfont iconnext"></icon>
+      <image class="iconnext" src="../../images/arrow-right.png"></image>
+    </view>
+  </view>
+  <view class="van-cell-group">
+    <van-cell-group>
+      <van-field value="{{ userInfo.name }}" label="姓名" placeholder="请输入姓名" input-align="right" />
+      <van-cell title="性别" is-link value="{{userInfo.gender}}" bind:click="onSelectGender" />
+      <van-field value="{{ userInfo.numberYear }}" label="从业" placeholder="请填写从业年数" input-align="right" />
+      <van-field value="{{ userInfo.throughput }}" label="输送量" placeholder="请填写输送量" input-align="right" />
+      <van-field value="{{ userInfo.resources }}" label="资源" placeholder="请填写资源" input-align="right" />
+      <van-cell title="地址" is-link value="{{userInfo.address}}" bind:click="onSelectAddress" />
+      <van-field value="{{ userInfo.resources }}" label="个人介绍" placeholder="请填写个人介绍" type="textarea" autosize
+        input-align="right" />
+
+    </van-cell-group>
+  </view>
+
+  <view class="btn" bindtap="saveUserInfo">保存信息</view>
+  <!-- 下面的性别选择弹窗 -->
+  <van-action-sheet show="{{ genderShow }}" overlay="true" actions="{{ actions }}" round="{{ false }}"
+    bind:select="onGenderSelect" bind:close="onClose" bind:cancel="onClose" cancel-text="取消" />
+
+  <!-- 省市区选择框 -->
+  <van-popup show="{{ cityShow }}" position="bottom" custom-style="" bind:close="onClose">
+    <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}"
+      bindchange="bindChange">
+      <picker-view-column>
+        <view wx:for="{{province_list}}" wx:key="{{province_list}}" style="line-height: 50px; text-align: center;">
+          {{item.name}}</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{city_list}}" wx:key="{{city_list}}" style="line-height: 50px; text-align: center;">
+          {{item.name}}</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{county_list}}" wx:key="{{county_list}}" style="line-height: 50px; text-align: center;">
+          {{item.name}}</view>
+      </picker-view-column>
+    </picker-view>
+
+  </van-popup>
+</view>

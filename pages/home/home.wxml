@@ -1,0 +1,67 @@
+<view class="page">
+  <!-- <view class="page__bd">
+    <mp-searchbar bindselectresult="selectResult" search="{{search}}"></mp-searchbar>
+  </view> -->
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{swiperImages}}" wx:key="*this">
+      <swiper-item>
+        <image class="banner-img" src="{{item.img}}"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <!-- <mp-row>
+    <mp-col span="{{4}}" wx:for="{{grids}}">
+      <view class="grid">
+        <view class="col">
+          <image class="col__img" src="{{item.icon}}"></image>
+          <view>{{item.title}}</view>
+        </view>
+      </view>
+    </mp-col>
+  </mp-row> -->
+
+  <!-- <view class="select_box">
+    <Select title="类别" options="{{optionAreaArry}}" isRequired="false" widthPercentage="100%"
+      bind:mySelectItem='onSelectItem' name='formkey' showkey='name' />
+    <Select title="类别" options="{{optionPositionArry}}" isRequired="false" widthPercentage="100%"
+      bind:mySelectItem='onSelectItem' name='formkey' showkey='name' />
+    <Select title="类别" options="{{optionMoneyArry}}" isRequired="false" widthPercentage="100%"
+      bind:mySelectItem='onSelectItem' name='formkey' showkey='name' />
+    <Select title="类别" options="{{optionDescArry}}" isRequired="false" widthPercentage="100%"
+      bind:mySelectItem='onSelectItem' name='formkey' showkey='name' />
+  </view> -->
+
+  <view class="list">
+    <view class="goods-container">
+      <view class="goods-box" wx:for="{{jobs}}" wx:key="id" bindtap="toDetailsTap" data-id="{{item.id}}">
+        <view class="img-box">
+          <image src="{{item.image}}" class="image" mode="aspectFill" lazy-load="true" />
+        </view>
+        <view class="goods-title">{{item.title}}</view>
+
+        <view class='goods-box__row goods-font'>
+          <view class="goods-title">{{item.provinceName}} {{item.cityName}}</view>
+          <view class="goods-title_right">{{item.ageBegin}}-{{item.ageEnd}}</view>
+        </view>
+        <view class='goods-box__row goods-font'>
+          <view class="goods-title">
+            <view wx:if="{{item.jobMoneyType == 1}}">时薪：{{item.jobMoney}}</view>
+            <view wx:if="{{item.jobMoneyType == 2}}">日薪：{{item.jobMoney}}</view>
+            <view wx:if="{{item.jobMoneyType == 3}}">月薪：{{item.jobMoney}}</view>
+          </view>
+          <view class="goods-title_right">
+            <view wx:if="{{item.getMoneyType == 1}}"> 时返：{{item.getMoney}}</view>
+            <view wx:if="{{item.getMoneyType == 2}}"> 天返：{{item.getMoney}}</view>
+            <view wx:if="{{item.getMoneyType == 3}}"> 月返：{{item.getMoney}}</view>
+            <view wx:if="{{item.getMoneyType == 4}}"> 一次返：{{item.getMoney}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view hidden="{{loadingMoreHidden ? true : false}}" class="weui-loadmore weui-loadmore_line"
+      style='margin-top:60rpx;margin-bottom:30rpx;'>
+      <view class="weui-loadmore__tips weui-loadmore__tips_in-line">没有更多啦</view>
+    </view>
+  </view>
+</view>

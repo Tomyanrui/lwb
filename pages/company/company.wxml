@@ -1,0 +1,88 @@
+<view class="page">
+  <view>
+    <image class="banner-image" src="{{company.logo}}"></image>
+  </view>
+
+  <view class="weui-cell">
+    <view class="weui-cell__bd">{{company.name}}</view>
+    <!-- <view class="weui-cell__ft" wx:if="{{isShowEdit}}">
+      <button size="mini" plain="true" bindtap="edit">编辑</button>
+    </view> -->
+  </view>
+  <view class="weui-cell">
+    <view class="weui-cell__bd">公司简介:{{company.remark}}</view>
+  </view>
+  <view class="weui-cell">
+    <view class="weui-cell__bd">公司地址:{{company.provinceStr}} {{company.cityStr}}
+      {{company.countyStr}} {{company.address}}</view>
+  </view>
+
+  <van-tabs type="card" custom-class="tabs">
+    <van-tab title="在招职位">
+      <view wx:if="{{true}}">
+        <view class="weui-panel__bd" wx:for="{{dataList}}" wx:key="*this">
+          <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+              <image class="weui-media-box__thumb" src="{{item.image}}" />
+              <image style="width: 100px;height:100px" class1="weui-media-box__thumb" src="" />
+            </view>
+            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+              <view class="weui-media-box__title">{{item.jobRemark}}</view>
+              <view class="weui-media-box__title">{{item.provinceName}} {{item.cityName}}
+                年龄{{item.ageBegin}}-{{item.ageEnd}}</view>
+              <view class="weui-media-box__desc">
+                <view class="goods-title">
+                  <view wx:if="{{item.jobMoneyType == 1}}">时薪：{{item.jobMoney}}</view>
+                  <view wx:if="{{item.jobMoneyType == 2}}">日薪：{{item.jobMoney}}</view>
+                  <view wx:if="{{item.jobMoneyType == 3}}">月薪：{{item.jobMoney}}</view>
+                </view>
+                <view class="goods-title_right">
+                  <view wx:if="{{item.getMoneyType == 1}}"> 时返：{{item.getMoney}}</view>
+                  <view wx:if="{{item.getMoneyType == 2}}"> 天返：{{item.getMoney}}</view>
+                  <view wx:if="{{item.getMoneyType == 3}}"> 月返：{{item.getMoney}}</view>
+                  <view wx:if="{{item.getMoneyType == 4}}"> 一次返：{{item.getMoney}}</view>
+                </view>
+              </view>
+            </view>
+          </navigator>
+        </view>
+        <view hidden="{{loadingMoreHidden ? true : false}}" class="weui-loadmore weui-loadmore_line"
+          style='margin-top:60rpx;margin-bottom:30rpx;'>
+          <view class="weui-loadmore__tips weui-loadmore__tips_in-line">没有更多啦</view>
+        </view>
+      </view>
+      <view wx:else class="order-emtpy">
+        <loading wx:if="{{!mounted}}"></loading>
+        <empty wx:else imgSrc="https://oss.angsi.com/frontend-picture/1571051152978.png" title="没数据喔！"
+          info="是时候敞开胸怀逛一逛了" btnText="{{emptyProps.btnText}}" bind:onBtnClick="onEmptyBtnClick" />
+      </view>
+    </van-tab>
+    <van-tab title="合作派遣">
+      <view wx:if="{{true}}">
+        <view class="weui-panel__bd" wx:for="{{dataList1}}" wx:key="*this">
+          <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+              <image class="weui-media-box__thumb" src="{{item.logo}}" />
+              <image style="width: 100px;height:100px" class1="weui-media-box__thumb" src="" />
+            </view>
+            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+              <view class="weui-media-box__title">{{item.name}}</view>
+              <view class="weui-media-box__title">{{item.provinceName}} {{item.cityName}} 规模：{{item.peopleNumber}}</view>
+              <view class="weui-media-box__desc">发布职位：{{item.jobCount}} 合作企业：{{item.companyCount}}</view>
+            </view>
+          </navigator>
+        </view>
+        <view hidden="{{loadingMoreHidden ? true : false}}" class="weui-loadmore weui-loadmore_line"
+          style='margin-top:60rpx;margin-bottom:30rpx;'>
+          <view class="weui-loadmore__tips weui-loadmore__tips_in-line">没有更多啦</view>
+        </view>
+      </view>
+      <view wx:else class="order-emtpy">
+        <loading wx:if="{{!mounted}}"></loading>
+        <empty wx:else imgSrc="https://oss.angsi.com/frontend-picture/1571051152978.png" title="没数据喔！"
+          info="是时候敞开胸怀逛一逛了" btnText="{{emptyProps.btnText}}" bind:onBtnClick="onEmptyBtnClick" />
+      </view>
+    </van-tab>
+  </van-tabs>
+
+</view>

@@ -1,0 +1,29 @@
+.page {
+  margin-top: 80rpx;
+}
+
+.avator-box {
+  text-align: center;
+}
+
+.avator {
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 100%;
+  box-sizing: border-box;
+}
+
+.desc {
+  font-size: 28rpx;
+  line-height: 40px;
+  color: #666666;
+}
+
+button {
+  margin: 30rpx 30rpx;
+}
+
+.save {
+  background-color: goldenrod;
+  color: #fff;
+}

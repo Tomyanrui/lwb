@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "资源",
+  "disableScroll": false,
+  "usingComponents": {
+    "mp-tabs": "@miniprogram-component-plus/tabs",
+    "Select": "/components/select/select",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "empty": "/components/empty-status/index"
+  }
+}

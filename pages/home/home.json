@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "首页",
+  "usingComponents": {
+    "mp-searchbar": "weui-miniprogram/searchbar/searchbar",
+    "mp-grids": "weui-miniprogram/grids/grids",
+    "mp-col": "@miniprogram-component-plus/col",
+    "mp-row": "@miniprogram-component-plus/row",
+    "Select": "/components/select/select"
+  },
+  "enablePullDownRefresh": true
+}

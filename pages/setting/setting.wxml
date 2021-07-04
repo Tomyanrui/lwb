@@ -1,0 +1,8 @@
+<view class="page">
+  <view class="avator-box" bindtap="chooseImg">
+    <image class="avator" src="{{avatarUrl}}"></image>
+    <view class="desc">点击更换头像</view>
+  </view>
+  <button class="save" bindtap="saveAvatar">保存</button>
+  <button type="warn" plain="true" bindtap="logout">退出</button>
+</view>

@@ -1,0 +1,16 @@
+<!--components/empty/index.wxml-->
+<view class="empty-wrap" height="{{height}}" style="height:{{height}}">
+  <image class="empty-img" mode="{{mode}}" src="{{imgSrc}}"></image>
+  <text class="title">{{title}}</text>
+  <text wx:if="{{info}}" class="info">{{info}}</text>
+  <view wx:if="{{btnText && !isFromAddrList}}" class="btn" bindtap="onBtnClick">{{btnText}}</view>
+
+  <!-- 地址列表页面单独处理 -->
+  <view wx:if="{{btnText && isFromAddrList}}" class="from-addrlist-btn" bindtap="onBtnClick">
+    <view class="from-addrlist-btn-text">{{btnText}}</view>
+  </view>
+  <!-- 插槽 -->
+  <slot name="button">
+    
+  </slot>
+</view>

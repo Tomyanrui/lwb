@@ -1,0 +1,26 @@
+/* pages/my/my.wxss */
+.nick-name-wrapper {
+  background-color: var(--bgColor);
+  padding-top: 22rpx;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.item-wrapper {
+  background-color: var(--white);
+  padding: 0 36rpx;
+}
+
+.btn {
+  width: calc(100vw - 72rpx);
+  height: 90rpx;
+  line-height: 90rpx;
+  margin: 72rpx auto 0;
+  text-align: center;
+  background-color: var(--white);
+  border-radius:4rpx;
+  font-size:26rpx;
+  font-family:PingFangSC-Medium,PingFang SC;
+  font-weight:500;
+  color:rgba(16,15,15,1);
+}

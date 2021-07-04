@@ -1,0 +1,67 @@
+/* example/panel/panel.wxss */
+@import '../common.wxss';
+
+page {
+  background-color: #fff;
+}
+
+.weui-tabs-bar__wrp {
+  border-bottom: 1px solid #eee;
+  margin-top: 10px;
+}
+
+.weui-tabs-swiper {
+  width: 100%;
+  height: 100vh;
+}
+
+.weui-tabs-bar__wrp .tab-content {
+  /* height: 100%; */
+  padding-bottom: 50px;
+  /* width: 100%;
+  min-height: calc(100vh - 59px);
+  background-color: gold;
+  display: flex;
+  justify-content: center;
+  align-items: center; */
+  /* box-sizing: border-box; */
+  /* padding: 40rpx; */
+}
+
+.weui-tabs-bar__title {
+  margin: 0px 10px;
+}
+
+.tab-bar-title__selected {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.select_box {
+  display: flex;
+}
+
+.order-list-wrap {
+  /* min-height: calc(100vh - 2rpx); */
+  margin-top: 2rpx;
+}
+
+.order-list-wrap .order-content {
+  padding-bottom: 50px;
+}
+
+.order-list-wrap .order-emtpy {
+  width: 100%;
+  /* 最小高度 = 设备高度 - tabs栏高度(tabs组件高度单位为px) */
+  min-height: calc(100vh - 59px);
+  /* padding-bottom: 50px;
+  box-sizing: border-box; */
+  background-color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.weui-panel__bd {
+  background-color: #ffffff;
+}

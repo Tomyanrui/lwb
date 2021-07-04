@@ -1,0 +1,8 @@
+<!--pages/my/my.wxml-->
+<view class="nick-name-wrapper">
+  <view class="item-wrapper">
+    <common-item title="昵称" content="{{nickname}}" inputPlacehodler="请填写昵称" isShowInput="true" bind:onInput="onInput"
+      maxlength="10" />
+  </view>
+  <view class="btn" bindtap="confirmModify">确认修改</view>
+</view>
