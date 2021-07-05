@@ -73,5 +73,11 @@ page {
     background: #fff;
 }
 .list{
-  margin-top: 125rpx;
+  margin-top: 10rpx;
+}
+.weui-cell_input{
+  
+  margin: 0 20rpx;
+  margin-top: 130rpx;
+  background-color: #fff;
 }

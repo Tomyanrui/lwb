@@ -43,12 +43,21 @@
         </view>
       </block>
     </mp-tabs>
+    <view class=" weui-cell_input">
+
+      <!-- <picker mode="region" bindchange="getSearchInfo" value="{{locationInfo}}">
+        <view class="picker" wx:if="{{locationInfo && locationInfo.length}}">
+          您选中城市：{{locationInfo&& locationInfo[0]}}，{{locationInfo&&locationInfo[1]}}，{{locationInfo&&locationInfo[2]}}
+        </view>
+        <view wx:else>请点击搜索</view>
+      </picker> -->
+    </view>
     <view class="list">
       <view class="weui-panel__bd" wx:for="{{dataList}}" wx:key="id" wx:for-index="id">
         <navigator url="{{activeTab == 0?'/pages/company/company?id=':'/pages/my-company/my-company?id='}}{{item.id}}"
           class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
           <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-            <image class="weui-media-box__thumb" src="{{item.logo}}" />
+            <image class="weui-media-box__thumb" src="{{item.logo|| DEFAULT_IMAGE}}" />
             <!-- <image style="width: 100px;height:100px" class1="weui-media-box__thumb" src="" /> -->
           </view>
           <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">

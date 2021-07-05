@@ -36,30 +36,33 @@
     <view class="goods-container">
       <view class="goods-box" wx:for="{{jobs}}" wx:key="id" bindtap="toDetailsTap" data-id="{{item.id}}">
         <view class="img-box">
-          <image src="{{item.image}}" class="image" mode="aspectFill" lazy-load="true" />
+          <image src="{{item.image|| DEFAULT_IMAGE}}" class="image" mode="aspectFill" lazy-load="true" />
         </view>
-        <view class="goods-title">{{item.title}}</view>
+        <view class="goods-title">{{item.title|| '-'}}</view>
 
         <view class='goods-box__row goods-font'>
-          <view class="goods-title">{{item.provinceName}} {{item.cityName}}</view>
-          <view class="goods-title_right">{{item.ageBegin}}-{{item.ageEnd}}</view>
+          <view class="goods-title">{{item.provinceName|| ''}} {{item.cityName|| ''}}</view>
+          <view class="goods-title_right">{{item.ageBegin|| ''}}-{{item.ageEnd|| ''}}</view>
         </view>
         <view class='goods-box__row goods-font'>
           <view class="goods-title">
-            <view wx:if="{{item.jobMoneyType == 1}}">时薪：{{item.jobMoney}}</view>
-            <view wx:if="{{item.jobMoneyType == 2}}">日薪：{{item.jobMoney}}</view>
+            <view wx:if="{{item.jobMoneyType == 1}}">时薪：{{item.jobMoney|| 0}}</view>
+            <view wx:if="{{item.jobMoneyType == 2}}">日薪：{{item.jobMoney|| 0}}</view>
             <view wx:if="{{item.jobMoneyType == 3}}">月薪：{{item.jobMoney}}</view>
           </view>
           <view class="goods-title_right">
-            <view wx:if="{{item.getMoneyType == 1}}"> 时返：{{item.getMoney}}</view>
-            <view wx:if="{{item.getMoneyType == 2}}"> 天返：{{item.getMoney}}</view>
-            <view wx:if="{{item.getMoneyType == 3}}"> 月返：{{item.getMoney}}</view>
-            <view wx:if="{{item.getMoneyType == 4}}"> 一次返：{{item.getMoney}}</view>
+            <view wx:if="{{item.getMoneyType == 1}}"> 时返：{{item.getMoney|| 0}}</view>
+            <view wx:if="{{item.getMoneyType == 2}}"> 天返：{{item.getMoney|| 0}}</view>
+            <view wx:if="{{item.getMoneyType == 3}}"> 月返：{{item.getMoney|| 0}}</view>
+            <view wx:if="{{item.getMoneyType == 4}}"> 一次返：{{item.getMoney|| 0}}</view>
           </view>
+        </view>
+        <view class='goods-box__row goods-font'>
+          <view class="goods-title">职位介绍：{{item.jobRemark||'-'}}</view>
         </view>
       </view>
     </view>
-    <view hidden="{{loadingMoreHidden ? true : false}}" class="weui-loadmore weui-loadmore_line"
+    <view hidden="{{loadingMoreHidden ? false : true}}" class="weui-loadmore weui-loadmore_line"
       style='margin-top:60rpx;margin-bottom:30rpx;'>
       <view class="weui-loadmore__tips weui-loadmore__tips_in-line">没有更多啦</view>
     </view>

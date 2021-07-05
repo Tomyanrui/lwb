@@ -3,10 +3,10 @@ const {
 } = getApp().globalData
 const app = getApp()
 
+
 import {
   API_JOB_SEARCH
 } from '../../apis/job.js'
-
 import {
   API_ADS_GET
 } from '../../apis/ads.js'
@@ -21,7 +21,7 @@ import {
   API_ADDRESS_CITY,
   API_ADDRESS_COUNTY
 } from '../../apis/address.js'
-
+import {DEFAULT_IMAGE} from '../../config/constants'
 Page({
 
   /**
@@ -118,7 +118,9 @@ Page({
     ],
     jobs: [],
     pageIndex: 1,
-    pageSize: 10
+    pageSize: 10,
+    DEFAULT_IMAGE:'../../images/job.png',
+    loadingMoreHidden: true,
   },
 
   bindShowMsg() {
@@ -145,9 +147,12 @@ Page({
       method: "GET"
     }).then(response => {
       console.log("---job list get---")
+      let loadingMoreHidden = pSize > response.data.length ? true : false;
+      let dataList =
+      pIndex == 1 ? response.data : that.data.dataList.concat(response.data);
       console.log(response)
       that.setData({
-        jobs: response.data
+        jobs: dataList
       })
     })
   },
@@ -256,7 +261,12 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    if (!this.data.loadingMoreHidden) {
+      this.setData({
+        pageIndex: (this.data.pageIndex += 1),
+      });
+      this.searchJobs();
+    }
   },
 
   /**
