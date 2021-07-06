@@ -7,12 +7,23 @@
     "@miniprogram-component-plus/col": "^1.0.0",
     "@miniprogram-component-plus/row": "^1.0.0",
     "@miniprogram-component-plus/tabs": "^1.0.0",
-    "@vant/weapp": "^1.6.4"
+    "@vant/weapp": "^1.7.1"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Tom yan",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tomyanrui/lwb.git"
+  },
+  "keywords": [
+    "lwb-wechat"
+  ],
+  "bugs": {
+    "url": "https://github.com/Tomyanrui/lwb/issues"
+  },
+  "homepage": "https://github.com/Tomyanrui/lwb#readme"
 }

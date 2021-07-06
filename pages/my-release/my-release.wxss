@@ -65,3 +65,7 @@ page {
 .weui-panel__bd {
   background-color: #ffffff;
 }
+.weui-media-box__hd{
+  width: 150rpx ;
+  height: 150rpx;
+}

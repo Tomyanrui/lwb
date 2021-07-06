@@ -1,5 +1,5 @@
 @import "./pages/common/common.wxss"; /* 公共样式 */
-
+@import '/miniprogram_npm/@vant/weapp/common/index.wxss';
 /**app.wxss**/
 page{
   --bgColor: #F5F5F5;

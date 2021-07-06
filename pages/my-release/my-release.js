@@ -18,6 +18,8 @@ Page({
     activeTab: 0,
     dataList: [],
     mounted: false,
+    DEFAULT_IMAGE:'../../images/job.jpg',
+    DEFAULT_COMPANY_IMAGE:'../../images/company.jpg',
   },
 
   /**

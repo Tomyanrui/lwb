@@ -1,6 +1,8 @@
 {
   "pages": [
+    
     "pages/home/home",
+    "pages/job/job",
     "pages/member/member",
     "pages/message/message",
     "pages/release/release",
@@ -51,7 +53,7 @@
       }
     ]
   },
-  "style": "v2",
+ 
   "sitemapLocation": "sitemap.json",
   "themeLocation": "theme.json",
   "useExtendedLib": {

@@ -498,6 +498,9 @@ Page({
       wx.showToast({
         title: '保存成功',
       })
+      wx.navigateTo({
+          url: '/pages/my-release/my-release'
+      });
     }, errorRes => {
       wx.showToast({
         title: errorRes.errorMsg,

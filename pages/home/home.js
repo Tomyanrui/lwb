@@ -244,7 +244,15 @@ Page({
   onUnload: function () {
 
   },
-
+  /**
+   * 点击公司跳转
+   */
+  toDetailsTap: function(e) {
+   
+    wx.navigateTo({
+      url: '/pages/job/job?id='+e.currentTarget.dataset.id,
+    })
+  },
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */

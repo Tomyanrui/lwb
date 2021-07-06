@@ -48,7 +48,7 @@
           <view class="goods-title">
             <view wx:if="{{item.jobMoneyType == 1}}">时薪：{{item.jobMoney|| 0}}</view>
             <view wx:if="{{item.jobMoneyType == 2}}">日薪：{{item.jobMoney|| 0}}</view>
-            <view wx:if="{{item.jobMoneyType == 3}}">月薪：{{item.jobMoney}}</view>
+            <view wx:if="{{item.jobMoneyType == 3}}">月薪：{{item.jobMoney|| 0}}</view>
           </view>
           <view class="goods-title_right">
             <view wx:if="{{item.getMoneyType == 1}}"> 时返：{{item.getMoney|| 0}}</view>
