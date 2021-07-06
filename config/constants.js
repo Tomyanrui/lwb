@@ -1,0 +1,1 @@
+export const DEFAULT_IMAGE = `https://www.kuailaowu.com/imgs/20210617/202106174701219328.jpeg"`;

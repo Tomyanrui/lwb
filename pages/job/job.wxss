@@ -1,0 +1,17 @@
+.job{
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+}
+.cell-group{
+    margin-bottom: 10rpx;
+}
+.cell-group:first-child{
+    margin-top: 10rpx;
+}
+.van-cell {
+    align-items: center;
+}
+.van-icon{
+    color: #455a64;
+}

@@ -1,0 +1,50 @@
+<view class="job">
+    <van-cell-group class="cell-group">
+        <van-cell title="公司" value="{{jobObj.companyName||'-'}}" icon="comment" />
+    </van-cell-group>
+    <van-cell-group class="cell-group">
+        <van-cell title="职位" value="{{jobObj.resourceName||'-'}}" icon="comment" />
+    </van-cell-group>
+    <van-cell-group class="cell-group">
+        <van-cell title="联系人" value="{{jobObj.contactsPeople1||'-'}}" icon="friends" />
+    </van-cell-group>
+    <van-cell-group class="cell-group">
+        <van-cell title="电话" value="{{jobObj.contactsPhone1||'-'}}" icon="phone" />
+    </van-cell-group>
+    <van-cell-group class="cell-group" wx:if="{{jobObj && jobObj.contactsPeople2}}">
+        <van-cell title="第二联系人" value="{{jobObj.contactsPhone2||'-'}}" icon="friends" />
+    </van-cell-group>
+    <van-cell-group class="cell-group" wx:if="{{jobObj && jobObj.contactsPhone2}}">
+        <van-cell title="第二联系人电话" value="{{jobObj.contactsPhone2||'-'}}" icon="phone" />
+        <van-cell-group class="cell-group" wx:if="{{jobObj && jobObj.contactsPeople3}}">
+            <van-cell title="第三联系人" value="{{jobObj.contactsPhone3||'-'}}" icon="friends" />
+        </van-cell-group>
+    </van-cell-group>
+    <van-cell-group class="cell-group" wx:if="{{jobObj && jobObj.contactsPhone3}}">
+        <van-cell title="第三联系人电话" value="{{jobObj.contactsPhone3||'-'}}" icon="phone" />
+    </van-cell-group>
+    <van-cell-group class="cell-group">
+        <van-cell title="地址" value="{{jobObj.provinceName+jobObj.cityName+jobObj.countyName+jobObj.address}}"
+            icon="location" />
+    </van-cell-group>
+    <van-cell-group class="cell-group">
+        <van-cell title="职位类型" value="{{jobObj.jobTypeName||'-'}}" icon="comment" />
+    </van-cell-group>
+    <van-cell-group class="cell-group">
+        <van-cell title="{{jobObj.jobMoneyType == 1?'时薪':jobObj.jobMoneyType == 2?'日薪':'月薪'}}"
+            value="{{jobObj.jobMoney||0}}" icon="comment" />
+
+    </van-cell-group>
+    <van-cell-group class="cell-group">
+        <van-cell
+            title="{{jobObj.getMoneyType == 1?'时返':jobObj.getMoneyType == 2?'天返':jobObj.getMoneyType == 3?'月返':'一次返'}}"
+            value="{{jobObj.getMoney||0}}" icon="comment" />
+
+    </van-cell-group>
+    <van-cell-group class="cell-group">
+        <van-cell title="职位介绍" value="{{jobObj.jobRemark||'-'}}" icon="comment" />
+    </van-cell-group>
+    <van-cell-group class="cell-group">
+        <van-cell title="职位特点" value="" label="{{jobObj.getMoneyRemark||'-'}}" />
+    </van-cell-group>
+</view>
