@@ -42,7 +42,7 @@
 
     </van-cell-group>
     <van-cell-group class="cell-group">
-        <van-cell title="职位介绍" value="{{jobObj.jobRemark||'-'}}" icon="comment" />
+        <van-cell title="职位介绍"   label="{{jobObj.jobRemark||'-'}}"/>
     </van-cell-group>
     <van-cell-group class="cell-group">
         <van-cell title="职位特点" value="" label="{{jobObj.getMoneyRemark||'-'}}" />
