@@ -43,9 +43,32 @@ Page({
     provinceArray: [],
     cityArray: [],
     countyArray: [],
-    addressRemark: ''
+    addressRemark: '',
+    logo: "",
+    userInfo: {}
+      
   },
-
+  nameChange:function(e){
+    var company = this.data.serviceCompany
+    company.name = e.detail
+    this.setData({
+      serviceCompany:company
+    })
+  },
+  addressChange:function(e){
+     var company = this.data.serviceCompany
+    company.address = e.detail
+    this.setData({
+      serviceCompany:company
+    })
+  },
+  peopleNumberChange:function(e){
+     var company = this.data.serviceCompany
+    company.peopleNumber = e.detail
+    this.setData({
+      serviceCompany:company
+    })
+  },
   bindMultiPickerChange: function (e) {
     console.log(e)
     this.setData({
@@ -56,7 +79,8 @@ Page({
     company.city = this.data.cityArray[e.detail.value[1]].id
     company.county = this.data.countyArray[e.detail.value[2]].id
     this.setData({
-      serviceCompany: company
+      serviceCompany: company,
+       addressRemark: `${this.data.provinceArray[e.detail.value[0]].name} ${this.data.cityArray[e.detail.value[1]].name} ${this.data.countyArray[e.detail.value[2]].name}`
     })
   },
 
@@ -139,9 +163,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+   
     this.setData({
       selectFile: this.selectFile.bind(this),
-      uplaodFile: this.uplaodFile.bind(this)
+      uplaodFile: this.uplaodFile.bind(this),
+      userInfo:wx.getStorageSync('userInfo')
     })
     let that = this
     console.log('缓存信息')
@@ -306,6 +332,10 @@ Page({
         wx.showToast({
           title: '保存成功',
         })
+        wx.navigateTo({
+          url: "/pages/my-company/my-company?id="+this.data.userInfo.vipId
+      });
+         
       } else {
         wx.showToast({
           title: '保存失败',

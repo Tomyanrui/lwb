@@ -118,7 +118,7 @@ Page({
     ],
     jobs: [],
     pageIndex: 1,
-    pageSize: 10,
+    pageSize: 5,
     DEFAULT_IMAGE:'../../images/job.png',
     loadingMoreHidden: true,
     name:''
@@ -138,6 +138,7 @@ Page({
     })
   },
   onSearch:function(e){
+    console.log(e.detail);
      this.setData({
       name: e.detail,
        pageIndex: 1,
@@ -157,19 +158,22 @@ Page({
     let that = this
     let pIndex = that.data.pageIndex
     let pSize = that.data.pageSize
-    let name=that.data.name?`&name=${that.data.name}` :'';
+    let name=that.data.name?`&Name=${that.data.name}` :'';
     //获取区/县
     wxRequest({
       url: `${API_JOB_SEARCH}?PageIndex=${pIndex}&PageSize=${pSize}`+name,
       method: "GET"
     }).then(response => {
-      console.log("---job list get---")
-      let loadingMoreHidden = pSize > response.data.length ? true : false;
+     // console.log("---job list get---")
+      let loadingMoreHidden = pSize >(response.data && response.data.length||0) ? false : true;
+     
+     
       let dataList =
-      pIndex == 1 ? response.data : that.data.dataList.concat(response.data);
-      console.log(response)
+      pIndex == 1 ? response.data : that.data.jobs.concat(response.data);
+     
       that.setData({
-        jobs: dataList
+        jobs: dataList,
+        loadingMoreHidden
       })
     })
   },
@@ -277,7 +281,8 @@ Page({
     console.log("下拉。。")
     this.setData({
       pageIndex: 1,
-      pageSize: 10
+      pageSize: 10,
+      name:''
     })
     this.onLoad()
   },
@@ -286,7 +291,8 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    if (!this.data.loadingMoreHidden) {
+    console.log('shanghua')
+    if (this.data.loadingMoreHidden) {
       this.setData({
         pageIndex: (this.data.pageIndex += 1),
       });

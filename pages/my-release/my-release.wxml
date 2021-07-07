@@ -19,16 +19,16 @@
                   <!-- <image style="width: 100px;height:100px" class1="weui-media-box__thumb" src="" /> -->
                 </view>
                 <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-                  <view class="weui-media-box__title">{{item.companyName||"-"}} {{item.jobRemark||"-"}}</view>
-                  <view class="weui-media-box__title">{{item.provinceName||"-"}} {{item.cityName||"-"}}
+                  <view class="weui-media-box__title">{{item.companyName||""}} {{item.jobRemark||""}}</view>
+                  <view class="weui-media-box__title">{{item.provinceName||""}} {{item.cityName||""}}
                     年龄：{{item.ageBegin}}-{{item.ageEnd}}</view>
                   <view class="weui-media-box__desc">
                     <view wx:if="{{item.jobMoneyType == 1}}">时薪：{{item.jobMoney||"0"}}</view>
                     <view wx:if="{{item.jobMoneyType == 2}}">日薪：{{item.jobMoney||"0"}}</view>
                     <view wx:if="{{item.jobMoneyType == 3}}">月薪：{{item.jobMoney||"0"}}</view>
-                    <view wx:if="{{item.getMoneyType == 1}}"> 时返：{{item.getMoney||"0"}}</view>
-                    <view wx:if="{{item.getMoneyType == 2}}"> 天返：{{item.getMoney||"0"}}</view>
-                    <view wx:if="{{item.getMoneyType == 3}}"> 月返：{{item.getMoney||"0"}}</view>
+                    <view wx:if="{{item.getMoneyType == 1}}">时返：{{item.getMoney||"0"}}</view>
+                    <view wx:if="{{item.getMoneyType == 2}}">天返：{{item.getMoney||"0"}}</view>
+                    <view wx:if="{{item.getMoneyType == 3}}">月返：{{item.getMoney||"0"}}</view>
                     <view wx:if="{{item.getMoneyType == 4}}"> 一次返返：{{item.getMoney||"0"}}</view>
                   </view>
                 </view>
@@ -47,7 +47,7 @@
           
           <view wx:if="{{activeTab == 1}}">
             <view class="weui-panel__bd" wx:for="{{dataList1}}" wx:key="id">
-              <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+              <navigator url="/pages/company/company?id={{item.id}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
                 <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
                   <image class="weui-media-box__thumb" src="{{item.logo|| DEFAULT_COMPANY_IMAGE}}" />
                   <!-- <image style="width: 100px;height:100px" class1="weui-media-box__thumb" src="" /> -->

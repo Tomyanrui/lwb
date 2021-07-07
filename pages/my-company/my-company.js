@@ -31,6 +31,8 @@ Page({
       city: 0,
       county: 0
     },
+     DEFAULT_IMAGE:'../../images/company.jpg',
+    DEFAULT_JOB_IMAGE:'../../images/job.jpg',
   },
 
   //编辑 

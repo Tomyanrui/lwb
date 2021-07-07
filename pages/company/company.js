@@ -16,7 +16,9 @@ Page({
   data: {
     company: {},
     dataList: [],
-    dataList1: []
+    dataList1: [],
+    DEFAULT_IMAGE:'../../images/company.jpg',
+    DEFAULT_JOB_IMAGE:'../../images/job.jpg',
   },
 
   /**

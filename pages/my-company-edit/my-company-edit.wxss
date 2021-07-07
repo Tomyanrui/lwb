@@ -100,6 +100,17 @@
 }
 
 .picker{
-  padding: 13px;
-  background-color: #FFFFFF;
+  height: 60rpx;
+  font-size: 24rpx;
+  background-color: #fff;
+ 
+  border: 2rpx solid #ccc;
+}
+.weui-cells__title{
+  margin-top: 10px;
+}
+.company-picker{
+  display: flex;
+    align-content: center;
+    align-items: center;
 }

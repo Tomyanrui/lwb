@@ -77,7 +77,7 @@ page {
 }
 .weui-cell_input{
   
-  margin: 0 20rpx;
-  margin-top: 130rpx;
+  
+  margin-top: 100rpx;
   background-color: #fff;
 }

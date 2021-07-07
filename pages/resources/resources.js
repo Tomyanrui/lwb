@@ -108,12 +108,12 @@ Page({
     dataList: [],
     mounted: false,
     pageIndex: 1,
-    pageSize: 10,
+    pageSize: 3,
     loadingMoreHidden: true,
     inputVal: "",
-    DEFAULT_IMAGE:'../../images/job.png',
-    locationInfo:[],
-    name:''
+    DEFAULT_IMAGE: "../../images/job.png",
+    locationInfo: [],
+    name: "",
   },
 
   onTabCLick: function (e) {
@@ -129,27 +129,25 @@ Page({
     this.setData({
       pageIndex: 1,
       loadingMoreHidden: true,
-       name:'',
-     
+      name: "",
     });
-    this.getListByActiveTab()
-    
+    this.getListByActiveTab();
   },
-  onSearch:function(e){
-     this.setData({
+  onSearch: function (e) {
+    this.setData({
       name: e.detail,
-       pageIndex: 1,
-      loadingMoreHidden: true,
-    });
-    this.getListByActiveTab()
-  },
-  searchCancel:function(e){
-     this.setData({
-      name: '',
       pageIndex: 1,
       loadingMoreHidden: true,
     });
-     this.getListByActiveTab()
+    this.getListByActiveTab();
+  },
+  searchCancel: function (e) {
+    this.setData({
+      name: "",
+      pageIndex: 1,
+      loadingMoreHidden: true,
+    });
+    this.getListByActiveTab();
   },
 
   /**
@@ -175,15 +173,15 @@ Page({
     let that = this;
     let pIndex = that.data.pageIndex;
     let pSize = that.data.pageSize;
-    let name=that.data.name?`&name=${that.data.name}` :'';
+    let name = that.data.name ? `&Name=${that.data.name}` : "";
     //获取区/县
     wxRequest({
-      url: `${API_COMPANY_SEARCH}?PageIndex=${pIndex}&PageSize=${pSize}`+name,
+      url: `${API_COMPANY_SEARCH}?PageIndex=${pIndex}&PageSize=${pSize}` + name,
       method: "GET",
     }).then((response) => {
       console.log("---company list get---");
 
-      let loadingMoreHidden = pSize > response.data.length ? true : false;
+      let loadingMoreHidden = pSize >(response.data && response.data.length||0) ? false : true;
       let dataList =
         pIndex == 1 ? response.data : that.data.dataList.concat(response.data);
       console.log(loadingMoreHidden);
@@ -195,10 +193,9 @@ Page({
   },
   getSearchInfo: function (e) {
     if (e.detail.value) {
-      
       this.setData({
-        locationInfo: e.detail.value
-      })
+        locationInfo: e.detail.value,
+      });
     }
   },
   /**
@@ -209,19 +206,25 @@ Page({
     let pIndex = that.data.pageIndex;
     let pSize = that.data.pageSize;
     //省份
-    let Province=that.data.locationInfo && that.data.locationInfo[0]?`&Province=${that.data.locationInfo[0]}`:'';
+    let Province =
+      that.data.locationInfo && that.data.locationInfo[0]
+        ? `&Province=${that.data.locationInfo[0]}`
+        : "";
     //城市
-    let city=that.data.locationInfo && that.data.locationInfo[1]?`&City=${that.data.locationInfo[1]}`:'';
+    let city =
+      that.data.locationInfo && that.data.locationInfo[1]
+        ? `&City=${that.data.locationInfo[1]}`
+        : "";
     //关键词
-    let name=that.data.name?`&name=${that.data.name}` :'';
+    let name = that.data.name ? `&Name=${that.data.name}` : "";
     //获取区/县
     wxRequest({
-      url: `${API_SC_SEARCH}?PageIndex=${pIndex}&PageSize=${pSize}`+name,
+      url: `${API_SC_SEARCH}?PageIndex=${pIndex}&PageSize=${pSize}` + name,
       method: "GET",
     }).then((response) => {
       console.log("---service company list get---");
       //console.log(response)
-      let loadingMoreHidden = pSize > response.data.length ? true : false;
+      let loadingMoreHidden = pSize >(response.data && response.data.length||0) ? false : true;
       let dataList =
         pIndex == 1 ? response.data : that.data.dataList.concat(response.data);
       that.setData({
@@ -254,13 +257,19 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {},
+  onPullDownRefresh: function () {
+    this.setData({
+      pageIndex: 1,
+      name: "",
+    });
+    this.getListByActiveTab();
+  },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    if (!this.data.loadingMoreHidden) {
+    if (this.data.loadingMoreHidden) {
       this.setData({
         pageIndex: (this.data.pageIndex += 1),
       });

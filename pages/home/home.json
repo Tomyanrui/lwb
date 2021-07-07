@@ -5,7 +5,9 @@
     "mp-grids": "weui-miniprogram/grids/grids",
     "mp-col": "@miniprogram-component-plus/col",
     "mp-row": "@miniprogram-component-plus/row",
-    "Select": "/components/select/select"
+    "Select": "/components/select/select",
+    "van-search":  "@vant/weapp/search/index"
   },
-  "enablePullDownRefresh": true
+  "enablePullDownRefresh": true,
+  "disableScroll": false
 }
