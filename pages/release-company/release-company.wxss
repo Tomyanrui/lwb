@@ -22,9 +22,7 @@
   font-size: 14px;
 }
 
-button {
-  margin-top: 40px;
-}
+
 
 /* 弹框 */
 .modalDlg {
@@ -106,4 +104,19 @@ button {
   color: #fbf1e8;
   font-size: 30rpx;
   border: 0;
+}
+.picker{
+  height: 60rpx;
+  font-size: 24rpx;
+  background-color: #fff;
+ 
+  border: 2rpx solid #ccc;
+}
+.weui-cells__title{
+  margin-top: 10px;
+}
+.company-picker{
+  display: flex;
+    align-content: center;
+    align-items: center;
 }

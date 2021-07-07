@@ -2,6 +2,10 @@
   "usingComponents": {
     "mp-cells": "weui-miniprogram/cells/cells",
     "mp-cell": "weui-miniprogram/cell/cell",
-    "mp-uploader": "weui-miniprogram/uploader/uploader"
-  }
+    "mp-uploader": "weui-miniprogram/uploader/uploader",
+    "van-field": "@vant/weapp/field/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-cell": "@vant/weapp/cell/index"
+  },
+  "navigationBarTitleText": "添加企业"
 }

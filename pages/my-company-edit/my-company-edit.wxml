@@ -2,7 +2,7 @@
   <view class="page-body">
     <mp-cells title="基本信息">
       <van-cell-group>
-        <van-field label="公司名称" value="{{serviceCompany.name}}" placeholder="请输入用户名" border="{{ true }}" bind:change="nameChange" />
+        <van-field label="公司名称" value="{{serviceCompany.name}}" placeholder="请输入公司名称" border="{{ true }}" bind:change="nameChange" />
       </van-cell-group>
       <view style="display:flex;">
         <van-cell title="经营地区" style="width:30%;"></van-cell>

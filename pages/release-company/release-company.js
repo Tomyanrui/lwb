@@ -124,7 +124,27 @@ Page({
       })
     })
   },
-
+  nameChange:function(e){
+    var company = this.data.company
+    company.name = e.detail
+    this.setData({
+      company
+    })
+  },
+  personScaleChange:function(e){
+    var company = this.data.company
+    company.personScale = e.detail
+    this.setData({
+      company
+    })
+  },
+  addressChange:function(e){
+    var company = this.data.company
+    company.address = e.detail
+    this.setData({
+      company
+    })
+  },
   modifyName: function () {
     this.setData({
       showModal: true,
@@ -145,7 +165,7 @@ Page({
       modifyWhich: 'address'
     })
   },
-
+  
   back: function () {
     this.setData({
       showModal: false
