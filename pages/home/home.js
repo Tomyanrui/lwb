@@ -121,6 +121,7 @@ Page({
     pageSize: 10,
     DEFAULT_IMAGE:'../../images/job.png',
     loadingMoreHidden: true,
+    name:''
   },
 
   bindShowMsg() {
@@ -136,14 +137,30 @@ Page({
       select: false
     })
   },
-
+  onSearch:function(e){
+     this.setData({
+      name: e.detail,
+       pageIndex: 1,
+      loadingMoreHidden: true,
+    });
+    this.searchJobs()
+  },
+  searchCancel:function(e){
+     this.setData({
+      name: '',
+      pageIndex: 1,
+      loadingMoreHidden: true,
+    });
+     this.searchJobs()
+  },
   searchJobs: function () {
     let that = this
     let pIndex = that.data.pageIndex
     let pSize = that.data.pageSize
+    let name=that.data.name?`&name=${that.data.name}` :'';
     //获取区/县
     wxRequest({
-      url: `${API_JOB_SEARCH}?PageIndex=${pIndex}&PageSize=${pSize}`,
+      url: `${API_JOB_SEARCH}?PageIndex=${pIndex}&PageSize=${pSize}`+name,
       method: "GET"
     }).then(response => {
       console.log("---job list get---")

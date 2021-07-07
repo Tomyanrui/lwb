@@ -31,7 +31,10 @@
     <Select title="类别" options="{{optionDescArry}}" isRequired="false" widthPercentage="100%"
       bind:mySelectItem='onSelectItem' name='formkey' showkey='name' />
   </view> -->
-
+  <view class=" weui-cell_input">
+     <van-search value="{{ name }}" placeholder="请输入搜索关键词" bind:search="onSearch" bind:cancel="searchCancel" bind:clear="searchCancel"></van-search>
+      
+    </view>
   <view class="list">
     <view class="goods-container">
       <view class="goods-box" wx:for="{{jobs}}" wx:key="id" bindtap="toDetailsTap" data-id="{{item.id}}">

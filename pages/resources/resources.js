@@ -112,7 +112,8 @@ Page({
     loadingMoreHidden: true,
     inputVal: "",
     DEFAULT_IMAGE:'../../images/job.png',
-    locationInfo:[]
+    locationInfo:[],
+    name:''
   },
 
   onTabCLick: function (e) {
@@ -128,10 +129,27 @@ Page({
     this.setData({
       pageIndex: 1,
       loadingMoreHidden: true,
+       name:'',
      
     });
     this.getListByActiveTab()
     
+  },
+  onSearch:function(e){
+     this.setData({
+      name: e.detail,
+       pageIndex: 1,
+      loadingMoreHidden: true,
+    });
+    this.getListByActiveTab()
+  },
+  searchCancel:function(e){
+     this.setData({
+      name: '',
+      pageIndex: 1,
+      loadingMoreHidden: true,
+    });
+     this.getListByActiveTab()
   },
 
   /**
@@ -157,9 +175,10 @@ Page({
     let that = this;
     let pIndex = that.data.pageIndex;
     let pSize = that.data.pageSize;
+    let name=that.data.name?`&name=${that.data.name}` :'';
     //获取区/县
     wxRequest({
-      url: `${API_COMPANY_SEARCH}?PageIndex=${pIndex}&PageSize=${pSize}`,
+      url: `${API_COMPANY_SEARCH}?PageIndex=${pIndex}&PageSize=${pSize}`+name,
       method: "GET",
     }).then((response) => {
       console.log("---company list get---");
@@ -193,9 +212,11 @@ Page({
     let Province=that.data.locationInfo && that.data.locationInfo[0]?`&Province=${that.data.locationInfo[0]}`:'';
     //城市
     let city=that.data.locationInfo && that.data.locationInfo[1]?`&City=${that.data.locationInfo[1]}`:'';
+    //关键词
+    let name=that.data.name?`&name=${that.data.name}` :'';
     //获取区/县
     wxRequest({
-      url: `${API_SC_SEARCH}?PageIndex=${pIndex}&PageSize=${pSize}`,
+      url: `${API_SC_SEARCH}?PageIndex=${pIndex}&PageSize=${pSize}`+name,
       method: "GET",
     }).then((response) => {
       console.log("---service company list get---");
