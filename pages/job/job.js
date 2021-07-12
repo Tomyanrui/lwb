@@ -11,7 +11,8 @@ Page({
    */
   data: {
     id: "",
-    jobObj:null
+    jobObj:null,
+    DEFAULT_IMAGE:'../../images/job.png',
   },
 
   /**
@@ -36,4 +37,12 @@ Page({
       })
     //  this.getHabitIcon(options);
   },
+  toCompany:function(e){
+   
+    if(e.target.dataset.id &&e.target.dataset.name){
+      wx.navigateTo({
+      url: '/pages/company/company?id='+e.target.dataset.id,
+    })
+    }
+  }
 });

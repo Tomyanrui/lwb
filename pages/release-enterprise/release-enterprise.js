@@ -145,11 +145,9 @@ Page({
       console.log('---c get---');
       console.log(response);
       let companyList = []
-      for (var i = 0; i < response.data.length; i++) {
-        companyList.push(response.data[i].name)
-      }
+      
       that.setData({
-        companyArray: companyList,
+        companyArray: response.data,
         objectCompany: response.data
       })
       if (id == 0) {
@@ -267,6 +265,16 @@ Page({
     this.setData({
       companyIndex: e.detail.value,
       job: job
+    })
+  },
+  bindCompanyChangeNew: function (e) {
+    console.log(e)
+    let job = this.data.job
+    job.companyId = e.detail.id;
+    job.companyName = e.detail.name
+    this.setData({
+      
+      job
     })
   },
 

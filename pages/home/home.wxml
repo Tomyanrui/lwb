@@ -33,13 +33,16 @@
   </view> -->
   <view class=" weui-cell_input">
      <van-search value="{{ name }}" placeholder="请输入搜索关键词" bind:search="onSearch" bind:cancel="searchCancel" bind:clear="searchCancel"></van-search>
-      
+      <!-- <pickerinput list="{{companyList}}" _width="600rpx" _height="80rpx" bind:action="searchChange" actualvalue="id" showvalue="name" ></pickerinput> -->
     </view>
   <view class="list">
     <view class="goods-container">
       <view class="goods-box" wx:for="{{jobs}}" wx:key="id" bindtap="toDetailsTap" data-id="{{item.id}}">
         <view class="img-box">
           <image src="{{item.image|| DEFAULT_IMAGE}}" class="image" mode="aspectFill" lazy-load="true" />
+        </view>
+        <view class='goods-box__row goods-font'>
+          <view class="goods-title">{{item.jobRemark||''}}</view>
         </view>
         <view class="goods-title">{{item.title|| ''}}</view>
 
@@ -60,9 +63,7 @@
             <view wx:if="{{item.getMoneyType == 4}}"> 一次返：{{item.getMoney|| 0}}</view>
           </view>
         </view>
-        <view class='goods-box__row goods-font'>
-          <view class="goods-title">职位介绍：{{item.jobRemark||'-'}}</view>
-        </view>
+        
       </view>
     </view>
     <view hidden="{{loadingMoreHidden}}" class="weui-loadmore weui-loadmore_line"

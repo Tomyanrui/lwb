@@ -79,3 +79,6 @@ page{
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
+.save-button{
+	margin: 40rpx;
+}

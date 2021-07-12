@@ -5,7 +5,7 @@
     "backgroundColor": "#F7F7F7",
 
     "tabBarColor": "#7A7E83",
-    "tabBarSelectedColor": "#515151",
+    "tabBarSelectedColor": "#0c8967",
     "tabBarBorderStyle": "black",
     "tabBarBackgroundColor": "#F7F7F7",
 
@@ -26,7 +26,7 @@
     "backgroundColor": "#1F1F1F",
 
     "tabBarColor": "#FFFFFFCC",
-    "tabBarSelectedColor": "#515151",
+    "tabBarSelectedColor": "#0c8967",
     "tabBarBorderStyle": "white",
     "tabBarBackgroundColor": "#1F1F1F",
 

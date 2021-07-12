@@ -3,16 +3,24 @@
   <mp-form-page title="发布企业招聘" subtitle="保存/发布企业信息">
     <mp-form id="form" rules="{{rules}}" models="{{formData}}">
       <mp-cells>
-        <mp-cell prop="name" title="发布企业" ext-class="mp-cell">
-          <!-- <input bindinput="formInputChange" data-field="name" class="weui-input" placeholder="请输入企业名称" /> -->
-          <picker bindchange="bindCompanyChange" value="{{companyIndex}}" range="{{companyArray}}">
-            <view class="weui-select">{{companyArray[companyIndex]}}</view>
-          </picker>
-          <view slot="footer" class="weui-release-btn">
+        <mp-cell>
+          <view  class="weui-release-btn">
             <navigator url="/pages/release-company/release-company">
               无企业，去添加
             </navigator>
           </view>
+        </mp-cell>
+        <mp-cell prop="name" title="发布企业" ext-class="mp-cell">
+          <!-- <input bindinput="formInputChange" data-field="name" class="weui-input" placeholder="请输入企业名称" /> -->
+          <!-- <picker bindchange="bindCompanyChange" value="{{companyIndex}}" range="{{companyArray}}">
+            <view class="weui-select">{{companyArray[companyIndex]}}</view>
+          </picker> -->
+            <pickerinput list="{{companyArray}}" _width="350rpx" _height="1.6rem"  bind:action="bindCompanyChangeNew" actualvalue="id" showvalue="name" ></pickerinput>
+          <!-- <view slot="footer" class="weui-release-btn">
+            <navigator url="/pages/release-company/release-company">
+              无企业，去添加
+            </navigator>
+          </view> -->
         </mp-cell>
         <mp-cell title="职位描述">
           <input bindinput="remarkInput" value="{{job.jobRemark}}" class="weui-input" placeholder="请输入职位描述" />

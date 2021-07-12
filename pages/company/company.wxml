@@ -5,9 +5,9 @@
 
   <view class="weui-cell">
     <view class="weui-cell__bd">{{company.name||'-'}}</view>
-    <!-- <view class="weui-cell__ft" wx:if="{{isShowEdit}}">
-      <button size="mini" plain="true" bindtap="edit">编辑</button>
-    </view> -->
+    <view class="weui-cell__ft" >
+      <button size="mini" plain="true" bindtap="editCompany" data-id="{{company.id}}">编辑</button>
+    </view>
   </view>
   <view class="weui-cell">
     <view class="weui-cell__bd">公司简介:{{company.remark||'-'}}</view>

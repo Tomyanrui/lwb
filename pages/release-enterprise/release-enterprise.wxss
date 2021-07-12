@@ -6,10 +6,11 @@
 }
 
 .weui-release-btn {
-  display: inline-block;
-  font-size: 12px;
+  
+  font-size: 18px;
   color: var(--weui-LINK);
-  position: relative
+ 
+  text-align: center;
 }
 
 .dropdown_two {

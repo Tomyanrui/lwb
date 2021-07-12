@@ -10,7 +10,8 @@
     "van-dropdown-menu": "@vant/weapp/dropdown-menu/index",
     "van-dropdown-item": "@vant/weapp/dropdown-item/index",
     "Select":"/components/select/select",
-    "mp-uploader": "weui-miniprogram/uploader/uploader"
+    "mp-uploader": "weui-miniprogram/uploader/uploader",
+    "pickerinput": "/components/hui-picker-input/hui-picker-input"
   },
   "navigationBarTitleText": "发布"
 }

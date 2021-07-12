@@ -1,7 +1,7 @@
 <view class="page">
   <view class="btn-area" id="buttonContainer">
-    <navigator url="/pages/release-enterprise/release-enterprise?id=0" hover-class="ohter-navigator">
-      <button type="primary" bindtap="">发布关键企业信息</button>
+    <navigator url="{{activeTab == 0?'/pages/release-enterprise/release-enterprise?id=0':'/pages/release-company/release-company'}}" hover-class="ohter-navigator">
+      <button type="primary" bindtap="">{{activeTab == 0?'发布招聘信息':'发布关联企业信息'}}</button>
     </navigator>
   </view>
 

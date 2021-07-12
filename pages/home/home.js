@@ -121,7 +121,8 @@ Page({
     pageSize: 5,
     DEFAULT_IMAGE:'../../images/job.png',
     loadingMoreHidden: true,
-    name:''
+    name:'',
+    companyList:[]
   },
 
   bindShowMsg() {
@@ -177,11 +178,13 @@ Page({
       })
     })
   },
-
+ 
+  
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    
     this.GetAds()
     this.setData({
       search: this.search.bind(this)

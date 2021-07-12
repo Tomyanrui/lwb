@@ -69,3 +69,6 @@ page {
   width: 150rpx ;
   height: 150rpx;
 }
+.btn-area{
+  margin: 40rpx ;
+}

@@ -1,5 +1,5 @@
 .job{
-    background-color: #f0f0f0;
+    
     display: flex;
     flex-direction: column;
 }
@@ -14,4 +14,24 @@
 }
 .van-icon{
     color: #455a64;
+}
+.job_remark{
+    line-height: 100rpx;
+    height: 100rpx;
+    font-size: 48rpx;
+    font-weight: 700;
+    padding: 0 40rpx;
+    background-color: #fff;
+}
+.job_money{
+    display: flex;
+    background-color: #fff;
+    font-size: 32rpx;
+    padding: 0 40rpx;
+    line-height: 70rpx;
+    
+}
+.job_money .job_type{
+   color: darkgray;
+   width: 20%;
 }
