@@ -10,13 +10,13 @@
     "tabBarBackgroundColor": "#F7F7F7",
 
     "iconPathHome": "images/icon_home.png",
-    "selectedIconPathHome": "images/icon_home_HL.png",
+    "selectedIconPathHome": "images/icon_home_new.png",
     "iconPathResources": "images/icon_resources.png",
-    "selectedIconPathResources": "images/icon_resources_HL.png",
+    "selectedIconPathResources": "images/icon_resources_new.png",
     "iconPathRelease": "images/icon_release.png",
     "selectedIconPathRelease": "images/icon_release_HL.png",
     "iconPathMember": "images/icon_member.png",
-    "selectedIconPathMember": "images/icon_member_HL.png",
+    "selectedIconPathMember": "images/icon_member_new.png",
 
     "backgroundTextStyle": "dark"
   },

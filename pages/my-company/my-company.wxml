@@ -21,7 +21,7 @@
     <van-tab title="在招职位">
       <view wx:if="{{true}}">
         <view class="weui-panel__bd" wx:for="{{dataList}}" wx:key="*this">
-          <navigator url="/pages/release-enterprise/release-enterprise?id={{item.id}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+          <navigator url="/pages/job/job?id={{item.id}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
             <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
               <image class="weui-media-box__thumb" src="{{item.image||DEFAULT_JOB_IMAGE}}" />
              
