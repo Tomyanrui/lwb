@@ -82,3 +82,21 @@ page{
 .save-button{
 	margin: 40rpx;
 }
+@font-face {
+	font-family: "iconfont"; /* Project id 2676223 */
+	src: url('//at.alicdn.com/t/font_2676223_dia3c63k0ou.woff2?t=1626321654944') format('woff2'),
+		 url('//at.alicdn.com/t/font_2676223_dia3c63k0ou.woff?t=1626321654944') format('woff'),
+		 url('//at.alicdn.com/t/font_2676223_dia3c63k0ou.ttf?t=1626321654944') format('truetype');
+  }
+  
+  .iconfont {
+	font-family: "iconfont" !important;
+	font-size: 16px;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+  }
+  
+  .icon-company:before {
+	content: "\e6e6";
+  }

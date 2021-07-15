@@ -40,3 +40,6 @@
    color: darkgray;
    width: 20%;
 }
+.icon-company{
+    color:rgb(255, 120, 120)
+}

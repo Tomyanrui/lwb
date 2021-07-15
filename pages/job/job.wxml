@@ -19,7 +19,7 @@
     </van-cell>
     <van-cell border="{{false}}" >
         <view slot="title" bindtap="toCompany" data-id="{{jobObj.id}}" data-name="{{jobObj.companyName}}">
-            公司名称： {{jobObj.companyName||'-'}}
+            <text class="iconfont icon-company"></text> {{jobObj.companyName||'-'}}
         </view>
     </van-cell>
 

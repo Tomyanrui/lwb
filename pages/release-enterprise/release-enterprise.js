@@ -247,9 +247,15 @@ Page({
    * 联系人电话
    */
   contactsPhone1Change: function (e) {
-    console.log(e.detail.value)
     let job = this.data.job
     job.contactsPhone1 = e.detail.value
+    if(!/^[1][3,4,5,7,8][0-9]{9}$/.test(e.detail.value)){
+        job.contactsPhone1 = '';
+        wx.showToast({
+        title: '请输入正确的手机号',
+        icon: 'error'
+      })
+    }
     this.setData({
       job: job
     })

@@ -110,7 +110,7 @@
           <input bindinput="contactsPeople1Change" value="{{job.contactsPeople1}}" placeholder="输入姓名" />
         </mp-cell>
         <mp-cell title="电话">
-          <input bindinput="contactsPhone1Change" value="{{job.contactsPhone1}}" placeholder="输入联系方式" />
+          <input bindinput="contactsPhone1Change" value="{{job.contactsPhone1}}" placeholder="输入联系方式" type="number" />
         </mp-cell>
       </mp-cells>
 
