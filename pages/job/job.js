@@ -44,5 +44,21 @@ Page({
       url: '/pages/company/company?id='+e.target.dataset.id,
     })
     }
-  }
+  },
+  phoneCall: function (e) {
+    if(!e.currentTarget.dataset.replyPhone){
+      return 
+    }
+    wx.makePhoneCall({
+    phoneNumber: e.currentTarget.dataset.replyPhone,
+    
+    success: function () {
+    console.log("成功拨打电话")
+    
+    },
+    
+    })
+    
+    },
+    
 });

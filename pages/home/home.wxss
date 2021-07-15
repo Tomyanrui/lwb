@@ -67,9 +67,9 @@ page {
 }
 
 .goods-title_right {
-  padding: 0 20rpx;
+  /* padding: 0 20rpx; */
 }
 
 .goods-font {
-  font-size: 30rpx;
+  font-size: 28rpx;
 }

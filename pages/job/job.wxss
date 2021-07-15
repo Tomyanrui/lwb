@@ -4,30 +4,35 @@
     flex-direction: column;
 }
 .cell-group{
-    margin-bottom: 10rpx;
+    /* margin-bottom: 10rpx; */
 }
 .cell-group:first-child{
     margin-top: 10rpx;
 }
 .van-cell {
     align-items: center;
+    padding-top:  0 !important;
+    padding-bottom: 0 !important;
+
+    
 }
+
 .van-icon{
     color: #455a64;
 }
 .job_remark{
-    line-height: 100rpx;
-    height: 100rpx;
+    /* line-height: 100rpx;
+    height: 100rpx; */
     font-size: 48rpx;
     font-weight: 700;
-    padding: 0 40rpx;
+    padding: 0 32rpx;
     background-color: #fff;
 }
 .job_money{
     display: flex;
     background-color: #fff;
     font-size: 32rpx;
-    padding: 0 40rpx;
+    padding: 0 32rpx;
     line-height: 70rpx;
     
 }

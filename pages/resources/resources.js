@@ -108,7 +108,7 @@ Page({
     dataList: [],
     mounted: false,
     pageIndex: 1,
-    pageSize: 3,
+    pageSize: 5,
     loadingMoreHidden: true,
     inputVal: "",
     DEFAULT_IMAGE: "../../images/job.png",
